@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+CO+Guides&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+CO+Guides&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+CO+Guides&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CO+Guides&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.skill-card{
+    @apply border shadow-lg w-20  h-20 rounded-full flex flex-wrap text-center justify-center items-center font-robotoSlab px-20 hover:shadow-lg hover:bg-gray-300 hover:text-white transition duration-200 hover:animate-pulse ease-in-out hover:-translate-y-4 cursor-pointer mobile:w-10 mobile:px-10 mobile:mt-10 mobile:relative mobile:right-10
+}
+.skill-card i {
+  @apply text-4xl text-gray-700 mobile:text-3xl;
+}
+.skill-manager {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mobile:grid-cols-3 mobile:w-full mobile:gap-1;
+}
+
+.section-title{
+    @apply text-xl font-semibold text-gray-800 font-robotoSlab
+}

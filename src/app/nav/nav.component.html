@@ -1,0 +1,25 @@
+<div class="w-full fixed z-50 mobile:my-0 mt-0">
+    <nav
+        class="flex items-center justify-between px-40 py-2 bg-gray-900 mobile:px-2 mobile:font-medium mobile:text-sm overflow-x-hidden w-full mobile:justify-between sm:px-10">
+        <!--Name Logo -->
+        <div class="text-white font-bold sm:text-2xl md:text-3xl sm:font-semibold sm:pl-2 sm:pr-2 sm:mr-5 w-full font-robotoSlab">Yusuf
+            Ridwan</div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+           id="menu-icon" class="size-6 bg-gray-300 sm:hidden mobile:mr-2 ">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+        </svg>
+        <!-- Navigation Links -->
+        <div id="nav-links" [class.hidden]="isNavVisible"
+            class="flex mobile:flex-col mobile:px-0 gap-4 pr-60 md:ml-20 mobile:ml-3 mobile:gap-1 sm:pr-10 mobile:-right-full mobile:hidden font-robotoSlab">
+            <a href="#"
+                class="px-8 py-1 bg-white text-black rounded-full text-sm font-medium hover:shadow-md transition">Work</a>
+            <a href="#"
+                class="px-8 py-1 bg-white text-black rounded-full text-sm font-medium hover:shadow-md transition">About</a>
+            <a href="#"
+                class="px-8 py-1 bg-white text-black rounded-full text-sm font-medium hover:shadow-md transition">Contact</a>
+        </div>
+
+    </nav>
+</div>
