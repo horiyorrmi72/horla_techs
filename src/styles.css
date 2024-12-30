@@ -10,7 +10,7 @@
     @apply border shadow-lg w-20  h-20 rounded-full flex flex-wrap text-center justify-center items-center font-robotoSlab px-20 hover:shadow-lg hover:bg-gray-300 hover:text-white transition duration-200 hover:animate-pulse ease-in-out hover:-translate-y-4 cursor-pointer mobile:w-10 mobile:px-10 mobile:mt-10 mobile:relative mobile:right-10
 }
 .skill-card i {
-  @apply text-4xl text-gray-700 mobile:text-3xl;
+  @apply text-4xl text-gray-700 mobile:text-3xl
 }
 .skill-manager {
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mobile:grid-cols-3 mobile:w-full mobile:gap-1;
