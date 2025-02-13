@@ -1,0 +1,25 @@
+.glassPix{
+background: rgba(255, 255, 255, 0.05);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.smoke-effect {
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); /* Subtle glow */
+}
+
+.smoke-effect::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, rgba(0, 0, 0, 0) 80%);
+    filter: blur(20px);
+    z-index: -1;
+    border-radius: 50%;
+}

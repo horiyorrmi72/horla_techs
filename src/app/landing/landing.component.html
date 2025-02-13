@@ -2,38 +2,40 @@
     class=" bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen w-full md:overflow-hidden md:max-w-screen">
     <div class="flex flex-col items-center gap-8">
         <!-- Profile Section -->
-        <div class="flex flex-col gap-8 items-center">
-            <!-- Profile Picture -->
-            <div class="mobile:w-6/9 md:w-25 md:h-60 rounded-full overflow-x-hidden mobile:p-9">
-                <img src="../../assets/dev.jpeg" alt="Profile" class="w-full h-full object-cover">
-            </div>
-            <!-- JSON Data -->
-            <div class="flex gap-4">
-                <a href="#"
-                    class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 transition">
-                    <span class="text-white text-lg">in</span>
-                </a>
-                <a href="#"
-                    class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 transition">
-                    <span class="text-white text-lg">X</span>
-                </a>
-                <a href="#"
-                    class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 transition">
-                    <span class="text-white text-lg">🎥</span>
-                </a>
-            </div>
-            <div>
-                <!-- <pre class="text-left text-green-400 text-sm">
-                    {{
-{
-"name": "{{ profile.name }}",
-"occupation": "{{ profile.occupation }}",
-"likes": ["{{ profile.likes.join('", "') }}"]
-}
-}}
 
-        </pre> -->
+        <div class="grid grid-cols-2 justify-center items-center gap-8">
+            <!-- Profile Picture -->
+            <div class="relative md:w-full md:h-60 overflow-hidden rounded-2xl ">
+                <img src="../../assets/dev-removebg-preview.png" alt="Profile"
+                    class="h-[100%] shadow-xl border-none smoke-effect rounded-2xl">
             </div>
+
+            <div class="flex flex-col">
+                <!-- profile details -->
+                <code>
+                        <p class="my-4 text-blue-700">{{'{'}}</p>
+                        
+                    <div *ngFor="let details of profile | keyvalue: noSort" class="">
+                        <div class="sm:mx-4">
+                            <p><span class="text-green-600">{{details.key}}</span>: <span class="text-gray-500"><span>"{{details.value}}"</span></span><span>,</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="my-4 text-blue-700">{{'}'}}</p>
+                    </code>
+                <!-- media links -->
+                <div class="flex gap-4">
+                    <div *ngFor="let item of socialLinks" class="flex">
+                        <a href="{{item.link}}"
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r  to-blue-500 hover:opacity-90 transition">
+                            <img src="{{item.icon}}" class="text-white text-lg rounded-full">
+                            <!-- <span class="text-white text-lg">{{item.icon}}</span> -->
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
