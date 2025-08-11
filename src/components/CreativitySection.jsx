@@ -4,7 +4,7 @@ export function CreativitySection() {
 	return (
 		<section className='py-20 bg-gradient-to-b from-white to-gray-50 text-center '>
 			<div className='container mx-auto px-4 max-w-4xl'>
-				<h2 className='text-3xl md:text-4xl font-bold mb-4'>
+				<h2 className='text-3xl md:text-4xl font-stretch-semi-condensed mb-4'>
 					Where Creativity Meets Strategy & Innovation
 				</h2>
 				<p className='text-lg text-gray-600 mb-12'>

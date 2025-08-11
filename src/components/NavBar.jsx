@@ -31,7 +31,7 @@ const NavBar = () => {
 	};
 
 	return (
-		<header className='flex justify-between md:justify-around items-center px-3 py-4 w-full fixed z-10 bg-white/50 backdrop-blur-md border-b border-white/20'>
+		<header className='flex justify-between md:justify-around items-center px-3 py-5 top-0 w-full fixed z-10 bg-white/50 backdrop-blur-md border-b border-white/20'>
 			{/* Logo */}
 			<div className='flex tracking-wider gap-x-2.5 items-center'>
 				<Image

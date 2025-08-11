@@ -38,7 +38,9 @@ export function MiniServices() {
 	return (
 		<section className='py-16 bg-white'>
 			<div className='container mx-auto text-center px-4'>
-				<h2 className='text-3xl font-bold mb-12'>Our Services</h2>
+				<h2 className='text-3xl font-stretch-semi-condensed mb-12'>
+					Our Services
+				</h2>
 				<div className='grid md:grid-cols-3 gap-8'>
 					{services.map((service, i) => (
 						<Card
@@ -61,7 +63,26 @@ export function MiniServices() {
 }
 
 const Services = () => {
-	return <div>Services</div>;
+	return (
+		<div className=''>
+			<p className='mb-4 text-center max-w-3xl mx-auto text-gray-700'>
+				At HorlaTechs, we specialize in delivering cutting-edge digital
+				solutions tailored to help your business thrive in today’s competitive
+				market. From custom software development to AI integration, our expert
+				team crafts innovative tools that streamline operations, enhance
+				customer engagement, and drive growth.
+			</p>
+			<MiniServices />
+
+			<p className='mt-6 text-center max-w-3xl mx-auto text-gray-700'>
+				Whether you need a robust web platform, a sleek mobile app, or a
+				comprehensive digital marketing strategy, HorlaTechs offers scalable and
+				secure solutions designed to elevate your brand. Partner with us to
+				harness the power of technology and take your business to the next
+				level.
+			</p>
+		</div>
+	);
 };
 
 export default Services;

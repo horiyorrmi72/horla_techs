@@ -9,7 +9,7 @@ export const MiniAboutUs = () => {
 	return (
 		<section className='py-16 bg-white text-center'>
 			<div className='max-w-3xl mx-auto px-4'>
-				<h2 className='text-3xl font-bold mb-6'>About Us</h2>
+				<h2 className='text-3xl font-stretch-semi-condensed mb-6'>About Us</h2>
 				<p className='text-lg text-gray-600'>
 					HorlaTech is a trusted leader in <strong>software development</strong>{' '}
 					and innovative digital solutions. We help businesses grow through
@@ -30,9 +30,8 @@ const LandingHero = () => {
 	return (
 		<section id='hero' className='bg-gradient-to-b from-white to-gray-50 py-20'>
 			<div className='max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12'>
-				{/* Left */}
 				<div className='md:w-3/5 text-center md:text-left'>
-					<h1 className='text-3xl md:text-5xl font-extrabold leading-tight mb-6'>
+					<h1 className='text-3xl md:text-5xl font-stretch-semi-condensed leading-tight mb-6'>
 						Custom Software Development, Web Development & Mobile App Solutions
 						That Grow Your Business
 					</h1>
@@ -62,7 +61,6 @@ const LandingHero = () => {
 					</p>
 				</div>
 
-				{/* Right */}
 				<motion.div
 					className='md:w-2/5 flex justify-center md:justify-end'
 					initial={{ opacity: 0, y: 40 }}
