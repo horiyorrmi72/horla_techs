@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import programmingImg from '../../public/programming.svg';
+import Link from 'next/link';
 
 export const MiniAboutUs = () => {
 	return (
@@ -47,9 +48,11 @@ const LandingHero = () => {
 					</p>
 
 					<div className='flex flex-wrap gap-4 justify-center md:justify-start'>
-						<Button size='lg'>Get Started</Button>
+						<Button size='lg'>
+							<Link href='/contact'>Get Started</Link>
+						</Button>
 						<Button variant='outline' size='lg'>
-							View Portfolio
+							<Link href='/'>View Portfolio</Link>
 						</Button>
 					</div>
 

@@ -25,14 +25,12 @@ const NavBar = () => {
 		return () => document.removeEventListener('click', handleClickOutside);
 	}, []);
 
-	// Close mobile menu when a link is clicked
 	const handleLinkClick = () => {
 		setMenuOpen(false);
 	};
 
 	return (
 		<header className='flex justify-between md:justify-around items-center px-3 py-5 top-0 w-full fixed z-10 bg-white/50 backdrop-blur-md border-b border-white/20'>
-			{/* Logo */}
 			<div className='flex tracking-wider gap-x-2.5 items-center'>
 				<Image
 					src={logo}
@@ -44,7 +42,6 @@ const NavBar = () => {
 				<h1 className='font-bold'>HorlaTechs</h1>
 			</div>
 
-			{/* Desktop nav with Get Started button */}
 			<div className='hidden md:flex items-center space-x-6 justify-between gap-x-24'>
 				<nav>
 					<ul className='flex space-x-6 capitalize'>
@@ -63,7 +60,7 @@ const NavBar = () => {
 					</ul>
 				</nav>
 				<button className='px-8 py-2 font-sans font-semibold text-white bg-black/90 rounded-full h-[40px]'>
-					Get Started
+					<Link href='/contact'>Get Started</Link>
 				</button>
 			</div>
 

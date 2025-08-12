@@ -1,4 +1,5 @@
 import { Button } from './ui/button';
+import Link from 'next/link';
 
 export function CreativitySection() {
 	return (
@@ -15,7 +16,8 @@ export function CreativitySection() {
 				</p>
 
 				<div className='grid md:grid-cols-2 gap-8 mb-12'>
-					{/* <div>
+					{/* femz/marv
+					<div>
 						<span className='text-4xl'>🎨</span>
 						<h3 className='mt-4 font-semibold text-lg'>Creative Vision</h3>
 						<p className='text-gray-600 text-sm'>
@@ -42,7 +44,7 @@ export function CreativitySection() {
 				</div>
 
 				<Button className='px-6 py-3 bg-primary text-white rounded-full shadow-md hover:shadow-lg transition'>
-					Let’s Build Something Great
+					<Link href='/contact'>Let’s Build Something Great</Link>
 				</Button>
 			</div>
 		</section>
