@@ -44,7 +44,7 @@ export default function Contact() {
 				setForm({ name: '', email: '', message: '' });
 				setTimeout(() => {
 					router.push('/');
-				});
+				}, 3000);
 			} else {
 				setError('Something went wrong. Please try again.');
 			}
