@@ -5,14 +5,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Send } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 export default function Contact() {
-	const router = useRouter();
 	const [form, setForm] = useState({ name: '', email: '', message: '' });
 	const [submitted, setSubmitted] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
+	const router = useRouter();
 
 	const handleChange = (e) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
@@ -43,7 +43,7 @@ export default function Contact() {
 				setSubmitted(true);
 				setForm({ name: '', email: '', message: '' });
 				setTimeout(() => {
-					router.back();
+					router.push('/');
 				});
 			} else {
 				setError('Something went wrong. Please try again.');
