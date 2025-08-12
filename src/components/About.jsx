@@ -4,9 +4,9 @@ import { Users, Flag, Lightbulb } from 'lucide-react';
 export default function About() {
 	return (
 		<main className='mt-10 max-w-5xl mx-auto px-6 py-16'>
-			<h1 className='text-4xl font-stretch-semi-condensed mb-8 text-center'>
+			<h2 className='text-4xl font-stretch-semi-condensed mb-8 text-center'>
 				About Us
-			</h1>
+			</h2>
 
 			<section className='mb-14 text-center max-w-3xl mx-auto text-gray-700'>
 				<p className='mb-4'>

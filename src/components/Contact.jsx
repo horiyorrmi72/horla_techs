@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Send } from 'lucide-react';
 
 export default function Contact() {
 	const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -15,15 +16,15 @@ export default function Contact() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// send the data to my backend service
-		setSubmitted(true);
+
+		setSubmitted(false);
 	};
 
 	return (
 		<main className='mt-10 max-w-3xl mx-auto px-6 py-16'>
-			<h1 className='text-4xl font-stretch-semi-condensed mb-8 text-center'>
+			<h2 className='text-4xl font-stretch-semi-condensed mb-8 text-center'>
 				Contact Us
-			</h1>
+			</h2>
 
 			{!submitted ? (
 				<form onSubmit={handleSubmit} className='space-y-6'>
@@ -74,6 +75,7 @@ export default function Contact() {
 
 					<Button type='submit' className='w-full'>
 						Send Message
+						<Send />
 					</Button>
 				</form>
 			) : (
