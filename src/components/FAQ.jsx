@@ -48,7 +48,6 @@ export function FAQ() {
 			a: 'We use modern and scalable technologies such as Angular, Next.js, React, Node.js,Nestjs, Python (Flask,Django) Tailwind CSS, and AI-driven solutions, ensuring your project is future-ready.',
 		},
 	];
-
 	const faqSchema = {
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
@@ -69,7 +68,7 @@ export function FAQ() {
 					Frequently Asked Questions
 				</h2>
 
-				<Accordion type='single' className='w-full'>
+				<Accordion type='single' collapsible className='w-full'>
 					{faqItems.map((item, index) => (
 						<AccordionItem key={index} value={`item-${index}`}>
 							<AccordionTrigger>{item.q}</AccordionTrigger>
