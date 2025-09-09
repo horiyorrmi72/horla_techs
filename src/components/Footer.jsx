@@ -37,10 +37,10 @@ const Footer = () => {
 							availableLanguage: ['English'],
 						},
 						sameAs: [
-							'https://facebook.com/horlatechs',
-							'https://twitter.com/horlatechs',
-							'https://instagram.com/horlatechs',
-							'https://linkedin.com/company/horlatechs',
+							// 'https://facebook.com/horlatechs',
+							'https://twitter.com/horla_techs',
+							'https://www.instagram.com/horla_techs',
+							'https://www.linkedin.com/in/horla',
 						],
 					}),
 				}}
