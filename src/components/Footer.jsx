@@ -142,19 +142,19 @@ const Footer = () => {
 					<div>
 						<h3 className='font-stretch-semi-condensed mb-3'>Follow Us</h3>
 						<div className='flex space-x-4'>
-							<Link href='https://facebook.com/horlatechs' target='_blank'>
+							{/* <Link href='https://facebook.com/horlatechs' target='_blank'>
 								<Facebook className='hover:text-blue-500 transition' />
-							</Link>
-							<Link href='https://twitter.com/horlatechs' target='_blank'>
+							</Link> */}
+							<Link href='https://twitter.com/horla_techs' target='_blank'>
 								<Twitter className='hover:text-blue-400 transition' />
 							</Link>
-							<Link href='https://instagram.com/horlatechs' target='_blank'>
-								<Instagram className='hover:text-pink-500 transition' />
-							</Link>
 							<Link
-								href='https://linkedin.com/company/horlatechs'
+								href='https://www.instagram.com/horla_techs'
 								target='_blank'
 							>
+								<Instagram className='hover:text-pink-500 transition' />
+							</Link>
+							<Link href='https://www.linkedin.com/in/horla' target='_blank'>
 								<Linkedin className='hover:text-blue-600 transition' />
 							</Link>
 						</div>
