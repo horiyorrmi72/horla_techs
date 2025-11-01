@@ -50,7 +50,7 @@ export function Testimonials() {
 							key={index}
 							className='bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-shadow'
 						>
-							<div className='flex items-center mb-4 rounded-full font-bold text-black bg-gradient-to-r from-gray-50 to-gray-500 w-15 h-15 text-center justify-center'>
+							<div className='flex items-center mb-4 rounded-full font-bold text-black bg-gradient-to-r from-white/50 to-black/30 w-15 h-15 text-center justify-center'>
 								{t.name
 									? t.name
 											.split(' ')
