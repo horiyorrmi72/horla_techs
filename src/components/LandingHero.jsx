@@ -12,8 +12,9 @@ export const MiniAboutUs = () => {
 			<div className='max-w-3xl mx-auto px-4'>
 				<h2 className='text-3xl font-stretch-semi-condensed mb-6'>About Us</h2>
 				<p className='text-lg text-gray-600'>
-					HorlaTech is a trusted leader in <strong>software development</strong>{' '}
-					and innovative digital solutions. We help businesses grow through
+					HorlaTechs a brand under HorlaTechs Digital Innovation is a trusted
+					leader in <strong>software development</strong> and innovative digital
+					solutions. We help businesses grow through
 					<strong> custom software development</strong>, high-performance
 					<strong> web applications</strong>, user-friendly
 					<strong> mobile apps</strong>, and tailored
@@ -38,7 +39,7 @@ const LandingHero = () => {
 					</h1>
 
 					<p className='text-lg text-gray-600 mb-8 leading-relaxed'>
-						At HorlaTech, we deliver world-class{' '}
+						At HorlaTechs, we deliver world-class{' '}
 						<strong>software development</strong>,<strong> custom CRM</strong>{' '}
 						solutions, and <strong>mobile applications</strong> that help
 						businesses scale faster. Our expert team blends innovative design,
@@ -52,7 +53,7 @@ const LandingHero = () => {
 							<Link href='/contact'>Get Started</Link>
 						</Button>
 						<Button variant='outline' size='lg'>
-							<Link href='/'>View Portfolio</Link>
+							<Link href='/portfolio'>View Portfolio</Link>
 						</Button>
 					</div>
 
