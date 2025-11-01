@@ -15,7 +15,7 @@ const services = [
 	{
 		icon: Cpu,
 		title: 'AI Integration',
-		desc: 'Enhance your business with cutting-edge AI features — from process automation to predictive analytics — seamlessly built into your systems.',
+		desc: 'Enhance your business with cutting-edge AI features, from process automation to predictive analytics seamlessly built into your systems.',
 	},
 	{
 		icon: Pen,
