@@ -53,5 +53,18 @@ export const projects = [
         year: 2024,
         image: "/assets/acrescrm.png",
         highlight: "40% increase in lead conversion."
-    }
+    },
+      {
+        id: 6,
+        title: "Fashion E-commerce Platform",
+        slug: "fashion-ecommerce",
+        description:
+            "Developed a full-stack fashion e-commerce platform with a focus on user experience and seamless integration of payment gateways.",
+        category: "Engineering",
+        year: 2024,
+        image: "/assets/vion.png",
+        // highlight: "40% increase in lead conversion."
+    },
+    
+    
 ];
