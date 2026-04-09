@@ -26,7 +26,7 @@ export const projects = [
         title: "NGO Website",
         slug: "women-safe-house",
         description:
-            "Revamped a legacy NGO platform, increasing the efficiency of the site, making it easier for people to donate and engage in the course of the organization's mission.",
+            "Revamped a legacy NGO (Women Safe House) platform, increasing the efficiency of the site, making it easier for people to donate and engage in the course of the organization's mission.",
         category: "Engineering",
         year: 2025,
         image: "/assets/women-safe-house.png",
@@ -51,7 +51,7 @@ export const projects = [
             "Custom CRM for a real estate agency in dubai, with AI-powered lead qualification and automated follow-ups.The AI handles calling the leads and qualifies lead based on the conversation, schedule appointment for inspection of property and also sends a reminder.",
         category: "Engineering",
         year: 2024,
-        image: "/assets/acrescrm.png",
+        image: "/assets/acres_and_squares_crm.png",
         highlight: "40% increase in lead conversion."
     },
       {
@@ -61,8 +61,19 @@ export const projects = [
         description:
             "Developed a full-stack fashion e-commerce platform with a focus on user experience and seamless integration of payment gateways.",
         category: "Engineering",
-        year: 2024,
+        year: 2026,
         image: "/assets/vion.png",
+        // highlight: "40% increase in lead conversion."
+    },
+     {
+        id: 7,
+        title: "Non-profit Organization Website",
+        slug: "non-profit-website",
+        description:
+            "Designed and developed a website for a non-profit organization (Winnie Ebiye Empowerment Foundation), incorporating donation features and volunteer sign-up.",
+        category: "Product",
+        year: 2026,
+        image: "/assets/winnie_ebiye_empowerment_foundation.png",
         // highlight: "40% increase in lead conversion."
     },
     
