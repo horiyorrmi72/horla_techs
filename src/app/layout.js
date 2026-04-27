@@ -51,7 +51,7 @@ strategy="afterInteractive"
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', process.env.NEXT_PUBLIC_GA_ID);
+  gtag('config', 'G-P26DDDNTD9');
   `}
 </Script>
       </head>
