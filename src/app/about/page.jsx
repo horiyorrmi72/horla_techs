@@ -46,12 +46,10 @@ export const metadata = {
 
 const page = () => {
 	return (
-		<div className=''>
+		<>
 			<About />
-			<div>
-				<FAQ />
-			</div>
-		</div>
+			<FAQ index='—' />
+		</>
 	);
 };
 

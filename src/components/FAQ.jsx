@@ -4,16 +4,18 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@/components/ui/accordion';
+import Link from 'next/link';
+import { Container, Reveal, SectionHeading } from './site/primitives';
 
-export function FAQ() {
+export function FAQ({ index = '06' }) {
 	const faqItems = [
 		{
-			q: 'What services does HorlaTech provide?',
-			a: 'We offer custom software development, web development, mobile app development, AI integration, copywriting, social media management, solutions tailored to your business needs.',
+			q: 'What services does HorlaTechs provide?',
+			a: 'We offer custom software development, web development, mobile app development, AI integration, deployment & hosting, copywriting, and social media management, all tailored to your business needs.',
 		},
 		{
 			q: 'What types of websites do you create?',
-			a: 'We create all types of websites including Corporate, VTU, Real Estate, Fintech, Educational,Delivery system Portal, E-Commerce, Blogs, Investment, and Banking platforms. We tailor each project to your needs.',
+			a: 'We create all types of websites including Corporate, VTU, Real Estate, Fintech, Educational, Delivery Portals, E-Commerce, Blogs, Investment, and Banking platforms. We tailor each project to your needs.',
 		},
 		{
 			q: 'What type of apps do you develop?',
@@ -29,7 +31,7 @@ export function FAQ() {
 		},
 		{
 			q: 'What do you need from me to get started?',
-			a: "We need details about your business, content [text, images], and any design preferences.If you don't have a domain or hosting, we can help you get one.",
+			a: "We need details about your business, content [text, images], and any design preferences. If you don't have a domain or hosting, we can help you get one.",
 		},
 		{
 			q: 'Do you work with clients outside Nigeria?',
@@ -45,7 +47,7 @@ export function FAQ() {
 		},
 		{
 			q: 'What technologies do you use?',
-			a: 'We use modern and scalable technologies such as Angular, Next.js, React, Node.js,Nestjs, Python (Flask,Django) Tailwind CSS, and AI-driven solutions, ensuring your project is future-ready.',
+			a: 'We use modern and scalable technologies such as Angular, Next.js, React, Node.js, NestJS, Python (Flask, Django), Tailwind CSS, and AI-driven solutions, ensuring your project is future-ready.',
 		},
 	];
 	const faqSchema = {
@@ -62,17 +64,37 @@ export function FAQ() {
 	};
 
 	return (
-		<section className='py-20 bg-gray-50'>
-			<div className='container mx-auto px-4 max-w-4xl'>
-				<h2 className='text-3xl md:text-4xl font-stretch-semi-condensed text-center mb-12'>
-					Frequently Asked Questions
-				</h2>
+		<section className='border-t border-line py-24 md:py-36'>
+			<Container className='grid gap-14 md:grid-cols-12'>
+				<div className='md:col-span-4'>
+					<div className='md:sticky md:top-32'>
+						<SectionHeading index={index} eyebrow='FAQ' title='Questions, answered.' />
+						<Reveal delay={0.2}>
+							<p className='mt-6 text-ink-soft'>
+								Can’t find what you need?{' '}
+								<Link href='/contact' className='text-ink underline decoration-signal underline-offset-4'>
+									Ask us directly
+								</Link>
+								.
+							</p>
+						</Reveal>
+					</div>
+				</div>
 
-				<Accordion type='single' collapsible className='w-full'>
-					{faqItems.map((item, index) => (
-						<AccordionItem key={index} value={`item-${index}`}>
-							<AccordionTrigger>{item.q}</AccordionTrigger>
-							<AccordionContent>{item.a}</AccordionContent>
+				<Accordion type='single' collapsible className='border-t border-line md:col-span-8'>
+					{faqItems.map((item, i) => (
+						<AccordionItem key={i} value={`item-${i}`} className='border-line'>
+							<AccordionTrigger className='group items-baseline gap-6 py-7 text-left text-lg font-medium hover:no-underline md:text-xl'>
+								<span className='flex items-baseline gap-5'>
+									<span className='font-mono text-xs text-ink-soft group-data-[state=open]:text-signal'>
+										{String(i + 1).padStart(2, '0')}
+									</span>
+									{item.q}
+								</span>
+							</AccordionTrigger>
+							<AccordionContent className='pb-8 pl-10 text-base leading-relaxed text-ink-soft'>
+								{item.a}
+							</AccordionContent>
 						</AccordionItem>
 					))}
 				</Accordion>
@@ -81,7 +103,7 @@ export function FAQ() {
 					type='application/ld+json'
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
 				/>
-			</div>
+			</Container>
 		</section>
 	);
 }

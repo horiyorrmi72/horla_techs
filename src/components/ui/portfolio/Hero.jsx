@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Reveal } from '@/components/site/primitives';
 
 export default function Hero({
 	eyebrow = 'Portfolio',
@@ -6,35 +7,24 @@ export default function Hero({
 	subtitle = 'Selected case studies combining product thinking, clean design and robust engineering.',
 }) {
 	return (
-		<section className='pt-12 pb-8 md:pt-20 md:pb-12'>
-			<div className='max-w-6xl mx-auto px-6'>
-				<div className='flex flex-col md:flex-row md:items-center md:justify-between gap-8'>
-					<div>
-						<p className='text-sm font-medium text-black text-400'>{eyebrow}</p>
-						<h1 className='mt-3 text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-gray-100'>
-							{title}
-						</h1>
-						<p className='mt-4 text-gray-600 dark:text-gray-300 max-w-2xl'>
-							{subtitle}
-						</p>
-					</div>
-
-					<div className='flex gap-3'>
-						<a
-							href='/contact'
-							className='inline-flex items-center justify-center rounded-md px-4 py-2 bg-black text-white font-medium shadow hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500'
-						>
-							Work with us today
-						</a>
-						<a
-							href='/about'
-							className='inline-flex items-center justify-center rounded-md px-4 py-2 border border-gray-200'
-						>
-							About HorlaTechs
-						</a>
-					</div>
+		<section className='relative overflow-hidden pb-12 pt-36 md:pb-16 md:pt-48'>
+			<div
+				aria-hidden
+				className='hairline-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_80%_10%,black_10%,transparent_60%)]'
+			/>
+			<Container className='relative grid gap-10 md:grid-cols-12 md:items-end'>
+				<div className='md:col-span-8'>
+					<Reveal>
+						<p className='eyebrow'>{eyebrow}</p>
+					</Reveal>
+					<Reveal delay={0.08}>
+						<h1 className='display mt-6 text-5xl leading-[1] md:text-[5.25rem]'>{title}</h1>
+					</Reveal>
 				</div>
-			</div>
+				<Reveal delay={0.16} className='md:col-span-4'>
+					<p className='text-lg leading-relaxed text-ink-soft'>{subtitle}</p>
+				</Reveal>
+			</Container>
 		</section>
 	);
 }

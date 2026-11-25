@@ -1,81 +1,146 @@
+/**
+ * Portfolio entries.
+ * - device: how the screenshot is framed ("phone" for tall mobile captures, "browser" for desktop).
+ * - tone:   background colour of the mat the screenshot sits on.
+ * - outcome: optional headline result, shown large. Only add numbers you can stand behind.
+ */
 export const projects = [
-    {
-        id: 1,
-        title: "Post Postpartum Website",
-        slug: "5starmums",
-        description:
-            "Engineering a backend system that powers a postpartum support platform.",
-        category: "Engineering",
-        year: 2022 / 23,
-        image: "/assets/5starmums.jpg",
-        highlight: ""
-    },
-    {
-        id: 2,
-        title: "Custom Suprise Call App",
-        slug: "elder-app",
-        description:
-            "Engineering a custom suprise call mobile application that could place calls to PSTN (public switched telephone network) to celebrate called party and play selected song to the called party before connecting them to continue their conversation.",
-        category: "Engineering",
-        year: 2023 / 24,
-        image: "/assets/elder-call-app.jpg",
-        highlight: ""
-    },
-    {
-        id: 3,
-        title: "NGO Website",
-        slug: "women-safe-house",
-        description:
-            "Revamped a legacy NGO (Women Safe House) platform, increasing the efficiency of the site, making it easier for people to donate and engage in the course of the organization's mission.",
-        category: "Engineering",
-        year: 2025,
-        image: "/assets/women-safe-house.png",
-        highlight: "32% conversion uplift"
-    },
-    {
-        id: 4,
-        title: "Digital Marketing Agency",
-        slug: "digital-flex",
-        description:
-            "Product redesign for digital flex that reduced time-to-onboard by 45% and improved trial-to-paid conversion.",
-        category: "Product",
-        year: 2025,
-        image: "/assets/digital-flex.png",
-        highlight: "45% faster onboarding"
-    },
-    {
-        id: 5,
-        title: "Custom CRM",
-        slug: "acres-crm",
-        description:
-            "Custom CRM for a real estate agency in dubai, with AI-powered lead qualification and automated follow-ups.The AI handles calling the leads and qualifies lead based on the conversation, schedule appointment for inspection of property and also sends a reminder.",
-        category: "Engineering",
-        year: 2024,
-        image: "/assets/acres_and_squares_crm.png",
-        highlight: "40% increase in lead conversion."
-    },
-      {
-        id: 6,
-        title: "Fashion E-commerce Platform",
-        slug: "fashion-ecommerce",
-        description:
-            "Developed a full-stack fashion e-commerce platform with a focus on user experience and seamless integration of payment gateways.",
-        category: "Engineering",
-        year: 2026,
-        image: "/assets/vion.png",
-        // highlight: "40% increase in lead conversion."
-    },
-     {
-        id: 7,
-        title: "Non-profit Organization Website",
-        slug: "non-profit-website",
-        description:
-            "Designed and developed a website for a non-profit organization (Winnie Ebiye Empowerment Foundation), incorporating donation features and volunteer sign-up.",
-        category: "Product",
-        year: 2026,
-        image: "/assets/winnie_ebiye_empowerment_foundation.png",
-        // highlight: "40% increase in lead conversion."
-    },
-    
-    
+	{
+		id: 5,
+		slug: 'acres-crm',
+		client: 'Acres & Squares',
+		title: 'An AI sales assistant for a Dubai real estate team',
+		category: 'Engineering',
+		year: 2024,
+		image: '/assets/acres_and_squares_crm.png',
+		size: [1352, 636],
+		device: 'browser',
+		tone: 'oklch(0.93 0.02 230)',
+		services: ['Custom CRM', 'AI voice agent', 'Automation'],
+		description:
+			'A custom CRM where an AI agent calls new leads, qualifies them from the conversation, books property inspections and sends reminders — so the sales team spends its time with serious buyers.',
+		outcome: { value: '40%', label: 'increase in lead conversion' },
+	},
+	{
+		id: 8,
+		slug: 'bqueue',
+		client: 'BQueue',
+		title: 'Discover more, wait less: live queues for local businesses',
+		category: 'Engineering',
+		year: '2025–26',
+		image: '/assets/bqueue.png',
+		size: [2880, 1800],
+		device: 'browser',
+		tone: 'oklch(0.92 0.035 265)',
+		services: ['Backend', 'Web app', 'Mobile app', 'Payments'],
+		description:
+			'A platform where people find local barbers, salons, restaurants and more, join a live queue from wherever they are, or book an appointment — while businesses manage their bookings and queues in one place.',
+	},
+	{
+		id: 9,
+		slug: 'flixora',
+		client: 'Flixora',
+		title: 'A video platform that feels local, wherever you watch from',
+		category: 'Engineering',
+		year: 2026,
+		image: '/assets/flixora.png',
+		size: [1902, 907],
+		device: 'browser',
+		tone: 'oklch(0.9 0.045 320)',
+		services: ['Backend', 'Web app', 'Payments', 'Browser extension', 'Admin dashboard'],
+		description:
+			'A video platform that adapts to each viewer’s region: people browse and voice-search films, shows and podcasts, creators upload their own videos, and the team runs it all from an admin dashboard — with payments and a companion browser extension.',
+	},
+	{
+		id: 3,
+		slug: 'women-safe-house',
+		client: 'Women Safe House',
+		title: 'Making it easier to give to a cause that matters',
+		category: 'Engineering',
+		year: 2025,
+		image: '/assets/women-safe-house.png',
+		size: [379, 632],
+		device: 'phone',
+		tone: 'oklch(0.92 0.025 280)',
+		services: ['Website rebuild', 'Donations', 'Performance'],
+		description:
+			'We rebuilt a slow, legacy NGO website so supporters can learn about the mission, donate and get involved in a few taps.',
+		outcome: { value: '32%', label: 'conversion uplift' },
+	},
+	{
+		id: 4,
+		slug: 'digital-flex',
+		client: 'Digital Flex',
+		title: 'A calmer onboarding for a digital marketing agency',
+		category: 'Product',
+		year: 2025,
+		image: '/assets/digital-flex.png',
+		size: [379, 632],
+		device: 'phone',
+		tone: 'oklch(0.93 0.03 150)',
+		services: ['Product redesign', 'UX', 'Web app'],
+		description:
+			'A product redesign that cut the time it takes new customers to get set up, and nudged more trial users into paying.',
+		outcome: { value: '45%', label: 'faster onboarding' },
+	},
+	{
+		id: 6,
+		slug: 'fashion-ecommerce',
+		client: 'Vion',
+		title: 'A fashion storefront that feels like the brand',
+		category: 'Engineering',
+		year: 2026,
+		image: '/assets/vion.png',
+		size: [1898, 877],
+		device: 'browser',
+		tone: 'oklch(0.91 0.015 70)',
+		services: ['E-commerce', 'Payments', 'Full-stack'],
+		description:
+			'A full-stack fashion e-commerce platform focused on a smooth shopping experience, with payment gateways built in from day one.',
+	},
+	{
+		id: 7,
+		slug: 'non-profit-website',
+		client: 'Winnie Ebiye Empowerment Foundation',
+		title: 'A home for a foundation, its donors and volunteers',
+		category: 'Product',
+		year: 2026,
+		image: '/assets/winnie_ebiye_empowerment_foundation.png',
+		size: [1895, 879],
+		device: 'browser',
+		tone: 'oklch(0.93 0.03 25)',
+		services: ['Website', 'Donations', 'Volunteer sign-up'],
+		description:
+			'A website for the Winnie Ebiye Empowerment Foundation, with donations and volunteer sign-up so people can help in more than one way.',
+	},
+	{
+		id: 2,
+		slug: 'elder-app',
+		client: 'Surprise Call',
+		title: 'A phone call that plays their favourite song first',
+		category: 'Engineering',
+		year: '2023–24',
+		image: '/assets/elder-call-app.jpg',
+		size: [498, 1080],
+		device: 'phone',
+		tone: 'oklch(0.92 0.03 300)',
+		services: ['Mobile app', 'Telephony (PSTN)', 'Backend'],
+		description:
+			'A mobile app that places a real phone call to celebrate someone, plays a song they love, then connects the two of you to keep talking.',
+	},
+	{
+		id: 1,
+		slug: '5starmums',
+		client: '5 Star Mums',
+		title: 'The backend behind a postpartum support platform',
+		category: 'Engineering',
+		year: '2022–23',
+		image: '/assets/5starmums.jpg',
+		size: [720, 1600],
+		device: 'phone',
+		tone: 'oklch(0.93 0.03 350)',
+		services: ['Backend engineering', 'APIs'],
+		description:
+			'We engineered the backend that powers a platform supporting new mothers through the weeks after birth.',
+	},
 ];

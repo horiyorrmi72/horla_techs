@@ -44,9 +44,7 @@ export const metadata = {
 };
 const page = () => {
 	return (
-		<div className='my-4 pt-20'>
-			<Services />
-		</div>
+		<Services />
 	);
 };
 

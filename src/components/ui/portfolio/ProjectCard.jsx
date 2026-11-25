@@ -1,60 +1,39 @@
-import Image from 'next/image';
-import React from 'react';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { ProjectMat } from '@/components/work/Device';
+import { cn } from '@/lib/utils';
 
-export default function ProjectCard({
-	id,
-	title,
-	description,
-	image,
-	highlight,
-	category,
-	year,
-	href = '#',
-}) {
+/** Compact project card used for the home page "Selected work" teaser. */
+export default function ProjectCard({ project, large = false }) {
+	const { slug, client, title, year, outcome } = project;
 	return (
-		<article
-			id={id}
-			className='group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow'
+		<Link
+			href={`/portfolio#${slug}`}
+			className='group block rounded-2xl transition-transform active:scale-[0.99]'
 		>
-			<Link
-				href={href}
-				className='block focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
-			>
-				<div className='relative h-44 md:h-56 w-full'>
-					<Image
-						src={image}
-						alt={`${title} cover`}
-						fill
-						sizes='(max-width: 768px) 100vw, 33vw'
-						className='object-cover group-hover:scale-105 transition-transform'
-						priority={false}
-					/>
-					{/* {console.log('Image data:', image)} */}
-				</div>
-
-				<div className='p-4 md:p-5'>
-					<div className='flex items-center justify-between'>
-						<h3 className='text-lg font-semibold text-gray-900 dark:text-gray-100'>
-							{title}
-						</h3>
-						{/* <span className='text-sm text-gray-500 dark:text-gray-400'>
-							{year}
-						</span> */}
-					</div>
-
-					<p className='mt-2 text-sm text-gray-600 dark:text-gray-300 line-clamp-7'>
-						{description}
+			<ProjectMat
+				project={project}
+				className={large ? 'aspect-[4/3] md:aspect-[2/1]' : 'aspect-[4/3]'}
+				sizes={large ? '(max-width: 768px) 100vw, 80vw' : '(max-width: 768px) 100vw, 45vw'}
+			/>
+			<div className='mt-6 flex items-start justify-between gap-6'>
+				<div>
+					<p className='eyebrow'>
+						{client} · {year}
 					</p>
-
-					<div className='mt-3 flex items-center justify-between'>
-						<span className='text-xs text-black font-medium'>{category}</span>
-						{highlight && (
-							<span className='text-xs text-gray-400'>{highlight}</span>
-						)}
-					</div>
+					<h3 className={cn('display mt-3 leading-tight', large ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl')}>
+						{title}
+					</h3>
+					{outcome && (
+						<p className='mt-3 text-sm text-ink-soft'>
+							<span className='font-medium text-signal'>{outcome.value}</span> {outcome.label}
+						</p>
+					)}
 				</div>
-			</Link>
-		</article>
+				<span className='mt-1 flex size-11 shrink-0 items-center justify-center rounded-full border border-line transition-colors duration-300 group-hover:border-ink group-hover:bg-ink group-hover:text-paper'>
+					<ArrowUpRight className='size-4' />
+				</span>
+			</div>
+		</Link>
 	);
 }

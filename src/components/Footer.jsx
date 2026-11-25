@@ -1,172 +1,146 @@
-'use client';
 import React from 'react';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import Script from 'next/script';
+import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
+import logo from '../../public/horlatechs_logo-rmbg.png';
+import Magnet from './reactbits/Magnet';
+import LagosTime from './site/LagosTime';
+import { contact, services } from '@/lib/site';
+
+const orgSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	name: 'HorlaTechs',
+	url: 'https://www.horlatechs.com',
+	logo: 'https://www.horlatechs.com/horlatechs_logo.png',
+	description:
+		'HorlaTechs is a Lagos, Nigeria–based software development company specializing in custom web development, mobile applications, CRM systems, and secure backend services. We deliver fast, scalable, and innovative digital solutions that help businesses grow locally and globally.',
+	address: {
+		'@type': 'PostalAddress',
+		streetAddress: 'Itire Road,Mushin',
+		addressLocality: 'Lagos',
+		addressRegion: 'LA',
+		postalCode: '100001',
+		addressCountry: 'Nigeria',
+	},
+	contactPoint: {
+		'@type': 'ContactPoint',
+		telephone: '+234-909-517-6621',
+		contactType: 'Customer Support',
+		areaServed: 'NG',
+		availableLanguage: ['English'],
+	},
+	sameAs: contact.socials.map((s) => s.href),
+};
 
 const Footer = () => {
 	return (
-		<>
-			{/* JSON-LD Structured Data */}
-			<Script
-				id='horlatechs-schema'
+		<footer className='relative overflow-hidden bg-ink text-paper'>
+			<script
 				type='application/ld+json'
-				strategy='afterInteractive'
-				dangerouslySetInnerHTML={{
-					__html: JSON.stringify({
-						'@context': 'https://schema.org',
-						'@type': 'Organization',
-						name: 'HorlaTechs',
-						url: 'https://www.horlatechs.com',
-						logo: 'https://www.horlatechs.com/logo.png',
-						description:
-							'HorlaTechs is a Lagos, Nigeria–based software development company specializing in custom web development, mobile applications, CRM systems, and secure backend services. We deliver fast, scalable, and innovative digital solutions that help businesses grow locally and globally.',
-						address: {
-							'@type': 'PostalAddress',
-							streetAddress: 'Itire Road,Mushin',
-							addressLocality: 'Lagos',
-							addressRegion: 'LA',
-							postalCode: '100001',
-							addressCountry: 'Nigeria',
-						},
-						contactPoint: {
-							'@type': 'ContactPoint',
-							telephone: '+234-909-517-6621',
-							contactType: 'Customer Support',
-							areaServed: 'NG',
-							availableLanguage: ['English'],
-						},
-						sameAs: [
-							// 'https://facebook.com/horlatechs',
-							'https://twitter.com/horla_techs',
-							'https://www.instagram.com/horla_techs',
-							'https://www.linkedin.com/in/horla',
-						],
-					}),
-				}}
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
 			/>
 
-			<footer className='bg-black/90 text-white py-10 mt-10'>
-				<div className='max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8'>
-					<div className='md:col-span-2'>
-						<h2 className='text-lg font-stretch-semi-condensed mb-3'>
-							HorlaTechs
-						</h2>
-						<p className='text-sm '>
-							HorlaTechs is a Lagos, Nigeria–based software development company
-							specializing in custom web development, mobile applications, CRM
-							systems, and secure backend services. We deliver fast, scalable,
-							and innovative digital solutions that help businesses locally and
-							globally grow, automate, and thrive in the modern digital era.
+			{/* Closing call to action */}
+			<div className='mx-auto max-w-7xl px-6 pb-20 pt-24 md:px-10 md:pt-32'>
+				<p className='eyebrow text-paper/50'>Have a project in mind?</p>
+				<Link
+					href='/contact'
+					className='group mt-6 flex flex-wrap items-end justify-between gap-6 border-b border-paper/15 pb-10'
+				>
+					<span className='display text-5xl leading-[0.95] md:text-8xl'>
+						Let’s build it <em className='text-signal'>together.</em>
+					</span>
+					<Magnet padding={120} magnetStrength={3}>
+						<span className='flex size-16 items-center justify-center rounded-full border border-paper/25 transition-all duration-500 group-hover:rotate-45 group-hover:border-signal group-hover:bg-signal md:size-24'>
+							<ArrowUpRight className='size-6 md:size-9' />
+						</span>
+					</Magnet>
+				</Link>
+
+				<div className='mt-16 grid grid-cols-2 gap-10 md:grid-cols-12'>
+					<div className='col-span-2 md:col-span-5'>
+						<div className='flex items-center gap-2.5'>
+							<Image src={logo} width={26} height={32} alt='' />
+							<span className='display text-xl'>HorlaTechs</span>
+						</div>
+						<p className='mt-5 max-w-sm text-sm leading-relaxed text-paper/60'>
+							We’re a software studio in Lagos building custom software, web
+							platforms, mobile apps and CRMs for people here and around the
+							world. Say hello any time. We read everything.
 						</p>
 					</div>
 
-					<div>
-						<h3 className='font-stretch-semi-condensed mb-3'>Quick Links</h3>
-						<ul className='space-y-2'>
-							<li>
-								<Link href='/' className='hover:text-blue-400 transition'>
-									Home
+					<FooterCol title='Studio'>
+						{[
+							['/', 'Home'],
+							['/services', 'Services'],
+							['/portfolio', 'Work'],
+							['/about', 'About'],
+							['/contact', 'Contact'],
+						].map(([href, label]) => (
+							<li key={href}>
+								<Link href={href} className='link-underline text-paper/70 hover:text-paper'>
+									{label}
 								</Link>
 							</li>
-							<li>
-								<Link
-									href='/services'
-									className='hover:text-blue-400 transition'
-								>
-									Services
-								</Link>
-							</li>
-							<li>
-								<Link href='/about' className='hover:text-blue-400 transition'>
-									About
-								</Link>
-							</li>
-							<li>
-								<Link
-									href='/contact'
-									className='hover:text-blue-400 transition'
-								>
-									Contact
-								</Link>
-							</li>
-						</ul>
-					</div>
+						))}
+					</FooterCol>
 
-					<div>
-						<h3 className='font-stretch-semi-condensed mb-3'>Services</h3>
-						<ul className='space-y-2'>
-							<li>
+					<FooterCol title='Services' className='md:col-span-3'>
+						{services.slice(0, 4).map((s) => (
+							<li key={s.id}>
 								<Link
-									href='/services#software-development'
-									className='hover:text-blue-400 transition'
+									href={`/services#${s.id}`}
+									className='link-underline text-paper/70 hover:text-paper'
 								>
-									Software Development
+									{s.title}
 								</Link>
 							</li>
-							<li>
-								<Link
-									href='/services#web'
-									className='hover:text-blue-400 transition'
-								>
-									Web Development
-								</Link>
-							</li>
-							<li>
-								<Link
-									href='/services#mobile'
-									className='hover:text-blue-400 transition'
-								>
-									Mobile Applications
-								</Link>
-							</li>
-							<li>
-								<Link
-									href='/services#crm'
-									className='hover:text-blue-400 transition'
-								>
-									CRM Solutions
-								</Link>
-							</li>
-							<li>
-								<Link
-									href='/services#backend'
-									className='hover:text-blue-400 transition'
-								>
-									Backend Services
-								</Link>
-							</li>
-						</ul>
-					</div>
+						))}
+					</FooterCol>
 
-					<div>
-						<h3 className='font-stretch-semi-condensed mb-3'>Follow Us</h3>
-						<div className='flex space-x-4'>
-							{/* <Link href='https://facebook.com/horlatechs' target='_blank'>
-								<Facebook className='hover:text-blue-500 transition' />
-							</Link> */}
-							<Link href='https://twitter.com/horla_techs' target='_blank'>
-								<Twitter className='hover:text-blue-400 transition' />
-							</Link>
-							<Link
-								href='https://www.instagram.com/horla_techs'
-								target='_blank'
-							>
-								<Instagram className='hover:text-pink-500 transition' />
-							</Link>
-							<Link href='https://www.linkedin.com/in/horla' target='_blank'>
-								<Linkedin className='hover:text-blue-600 transition' />
-							</Link>
-						</div>
-					</div>
+					<FooterCol title='Connect'>
+						{contact.socials.map((s) => (
+							<li key={s.href}>
+								<a
+									href={s.href}
+									target='_blank'
+									rel='noopener noreferrer'
+									className='link-underline text-paper/70 hover:text-paper'
+								>
+									{s.label}
+								</a>
+							</li>
+						))}
+						<li>
+							<a href={contact.phoneHref} className='link-underline text-paper/70 hover:text-paper'>
+								{contact.phone}
+							</a>
+						</li>
+					</FooterCol>
 				</div>
+			</div>
 
-				<div className='mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-400'>
-					© {new Date().getFullYear()} HorlaTechs. All rights reserved.
+			<div className='border-t border-paper/10'>
+				<div className='mx-auto flex max-w-7xl flex-col justify-between gap-2 px-6 py-6 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-paper/40 md:flex-row md:px-10'>
+					<span>© {new Date().getFullYear()} HorlaTechs Digital Innovation</span>
+					<span>
+						Made with care in Lagos · <LagosTime />
+					</span>
 				</div>
-			</footer>
-		</>
+			</div>
+		</footer>
 	);
 };
+
+function FooterCol({ title, children, className = 'md:col-span-2' }) {
+	return (
+		<div className={className}>
+			<h3 className='eyebrow text-paper/40'>{title}</h3>
+			<ul className='mt-5 space-y-3 text-sm'>{children}</ul>
+		</div>
+	);
+}
 
 export default Footer;

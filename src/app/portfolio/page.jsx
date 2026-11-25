@@ -1,69 +1,66 @@
-'use client';
-import React, { useMemo, useState } from 'react';
 import Hero from '@/components/ui/portfolio/Hero';
-import FilterTabs from '@/components/ui/portfolio/FilterTabs';
-import ProjectCard from '@/components/ui/portfolio/ProjectCard';
-import Contact from '@/components/Contact';
-import { projects as _projects } from '@/lib/projects';
+import PortfolioGrid from '@/components/ui/portfolio/PortfolioGrid';
+import { Container, CtaLink, Reveal } from '@/components/site/primitives';
+import { projects } from '@/lib/projects';
+
+export const metadata = {
+	title: 'Portfolio — HorlaTechs | Selected Software, Web & Mobile Work',
+	description:
+		'Selected HorlaTechs projects across custom software, CRM, web platforms and mobile apps — with the challenge, approach and measurable outcomes.',
+	openGraph: {
+		title: 'Portfolio — HorlaTechs',
+		description: 'Selected case studies in product, web and engineering.',
+		url: 'https://www.horlatechs.com/portfolio',
+		siteName: 'HorlaTechs',
+		locale: 'en_US',
+		type: 'website',
+	},
+};
+
+const itemList = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'HorlaTechs Portfolio',
+	url: 'https://www.horlatechs.com/portfolio',
+	itemListElement: projects.map((p, i) => ({
+		'@type': 'ListItem',
+		position: i + 1,
+		url: `https://www.horlatechs.com/portfolio#${p.slug}`,
+		name: `${p.client} — ${p.title}`,
+	})),
+};
 
 export default function PortfolioPage() {
-	const categories = useMemo(() => {
-		const cats = Array.from(new Set(_projects.map((p) => p.category)));
-		return cats;
-	}, []);
-
-	const [active, setActive] = useState('All');
-
-	const filtered = useMemo(() => {
-		if (active === 'All') return _projects;
-		return _projects.filter((p) => p.category === active);
-	}, [active]);
-
 	return (
-		<main>
+		<>
+			<script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
 			<Hero
-				eyebrow='Selected Work'
-				title='We design & build products that scale'
-				subtitle='A curated selection of work across product,engineering. Each case includes the challenge, process, and tangible outcomes.'
+				eyebrow='Selected work, 2022 — today'
+				title={
+					<>
+						Real products, for real people, <em className='text-signal'>doing real work.</em>
+					</>
+				}
+				subtitle='Every project here started as a conversation about a problem. Here’s what we built, who it was for, and what changed afterwards.'
 			/>
-
-			<section className='max-w-6xl mx-auto px-6 pb-12'>
-				<div className='flex items-center justify-between mb-6'>
-					<h2 className='text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100'>
-						Featured projects
-					</h2>
-					<FilterTabs
-						categories={categories}
-						active={active}
-						onChange={setActive}
-					/>
-				</div>
-
-				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-					{filtered.map((p) => (
-						<ProjectCard
-							key={p.id}
-							id={p.id}
-							title={p.title}
-							description={p.description}
-							image={p.image}
-							highlight={p.highlight}
-							category={p.category}
-							year={p.year}
-							// href={`/work/${p.slug}`}
-						/>
-					))}
-				</div>
-
-				{/* <div className='mt-8 text-center'>
-					<a
-						href='/work'
-						className='inline-flex items-center px-4 py-2 rounded-md border border-gray-200 dark:border-gray-700 text-sm font-medium'
-					>
-						View all case studies
-					</a>
-				</div> */}
+			<section className='pb-24 md:pb-32'>
+				<Container>
+					<PortfolioGrid />
+				</Container>
 			</section>
-		</main>
+			<section className='pb-24 md:pb-36'>
+				<Container>
+					<Reveal className='mx-auto max-w-3xl text-center'>
+						<p className='eyebrow'>Your project here?</p>
+						<p className='display mt-6 text-4xl leading-tight md:text-6xl'>
+							We’d love to hear what you’re <em className='text-signal'>working on.</em>
+						</p>
+						<div className='mt-10 flex justify-center'>
+							<CtaLink href='/contact'>Tell us about it</CtaLink>
+						</div>
+					</Reveal>
+				</Container>
+			</section>
+		</>
 	);
 }
