@@ -18,7 +18,7 @@ export const projects = [
 		tone: 'oklch(0.93 0.02 230)',
 		services: ['Custom CRM', 'AI voice agent', 'Automation'],
 		description:
-			'A custom CRM where an AI agent calls new leads, qualifies them from the conversation, books property inspections and sends reminders — so the sales team spends its time with serious buyers.',
+			'A custom CRM where an AI agent calls new leads, qualifies them from the conversation, books property inspections and sends reminders - so the sales team spends its time with serious buyers.',
 		outcome: { value: '40%', label: 'increase in lead conversion' },
 	},
 	{
@@ -34,7 +34,7 @@ export const projects = [
 		tone: 'oklch(0.92 0.035 265)',
 		services: ['Backend', 'Web app', 'Mobile app', 'Payments'],
 		description:
-			'A platform where people find local barbers, salons, restaurants and more, join a live queue from wherever they are, or book an appointment — while businesses manage their bookings and queues in one place.',
+			'A platform where people find local barbers, salons, restaurants and more, join a live queue from wherever they are, or book an appointment - while businesses manage their bookings and queues in one place.',
 	},
 	{
 		id: 9,
@@ -49,7 +49,7 @@ export const projects = [
 		tone: 'oklch(0.9 0.045 320)',
 		services: ['Backend', 'Web app', 'Payments', 'Browser extension', 'Admin dashboard'],
 		description:
-			'A video platform that adapts to each viewer’s region: people browse and voice-search films, shows and podcasts, creators upload their own videos, and the team runs it all from an admin dashboard — with payments and a companion browser extension.',
+			'A video platform that adapts to each viewer’s region: people browse and voice-search films, shows and podcasts, creators upload their own videos, and the team runs it all from an admin dashboard - with payments and a companion browser extension.',
 	},
 	{
 		id: 3,

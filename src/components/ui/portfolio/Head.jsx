@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default function Head() {
-	const title = 'Portfolio — HorlaTechs';
+	const title = 'Portfolio - HorlaTechs';
 	const description =
-		'HorlaTechs portfolio — selective case studies in web, product design, and growth engineering. See results, process, and impact.';
+		'HorlaTechs portfolio - selective case studies in web, product design, and growth engineering. See results, process, and impact.';
 
 	const siteUrl = 'https://horlatechs.com/portfolio';
 	const image = 'https://horlatechs.com/projects/project-hero-social.jpg';

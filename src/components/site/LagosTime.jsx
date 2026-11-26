@@ -34,7 +34,7 @@ export default function LagosTime({ withStatus = false, className }) {
 	return (
 		<span className={className}>
 			{fmt.format(now).toLowerCase()} in Lagos
-			{withStatus && (awake ? ' — we’re around' : ' — we’ll reply in the morning')}
+			{withStatus && (awake ? ' - we’re around' : ' - we’ll reply in the morning')}
 		</span>
 	);
 }

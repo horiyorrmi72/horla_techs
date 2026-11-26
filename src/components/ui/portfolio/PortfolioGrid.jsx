@@ -7,7 +7,6 @@ import { projects } from '@/lib/projects';
 import { cn } from '@/lib/utils';
 
 const ease = [0.22, 1, 0.36, 1];
-const pad = (n) => String(n).padStart(2, '0');
 
 export default function PortfolioGrid() {
 	const categories = useMemo(() => Array.from(new Set(projects.map((p) => p.category))), []);
@@ -24,7 +23,9 @@ export default function PortfolioGrid() {
 			<div className='sticky top-16 z-20 -mx-6 border-b border-line bg-paper/85 px-6 py-4 backdrop-blur-xl md:-mx-10 md:px-10'>
 				<div className='flex flex-wrap items-center justify-between gap-4'>
 					<p className='font-mono text-xs uppercase tracking-[0.18em] text-ink-soft'>
-						Showing {pad(filtered.length)} of {pad(projects.length)}
+						{filtered.length === projects.length
+							? `${projects.length} projects`
+							: `${filtered.length} of ${projects.length} projects`}
 					</p>
 					<FilterTabs categories={categories} active={active} onChange={setActive} />
 				</div>
@@ -41,7 +42,7 @@ export default function PortfolioGrid() {
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.6, ease }}
 						>
-							<CaseStudy project={p} index={i} total={filtered.length} />
+							<CaseStudy project={p} index={i} />
 						</motion.li>
 					))}
 				</AnimatePresence>
@@ -50,7 +51,7 @@ export default function PortfolioGrid() {
 	);
 }
 
-function CaseStudy({ project, index, total }) {
+function CaseStudy({ project, index }) {
 	const { slug, client, title, year, category, services, description, outcome } = project;
 	const flip = index % 2 === 1;
 
@@ -73,14 +74,12 @@ function CaseStudy({ project, index, total }) {
 			</div>
 
 			<div className={cn('flex flex-col md:col-span-5', flip && 'md:order-1')}>
-				<p className='flex items-baseline justify-between font-mono text-xs text-ink-soft'>
-					<span>
-						<span className='text-signal'>{pad(index + 1)}</span> / {pad(total)}
-					</span>
-					<span className='uppercase tracking-[0.18em]'>{category}</span>
+				<p className='eyebrow flex items-center gap-3'>
+					<span className='h-px w-8 bg-signal' aria-hidden />
+					{client}
+					<span className='text-ink/25'>·</span>
+					{category}
 				</p>
-
-				<p className='eyebrow mt-10'>{client}</p>
 				<h2 className='display mt-4 text-3xl leading-[1.08] md:text-[2.6rem]'>{title}</h2>
 				<p className='mt-6 text-lg leading-relaxed text-ink-soft'>{description}</p>
 

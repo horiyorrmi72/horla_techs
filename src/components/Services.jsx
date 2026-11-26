@@ -32,13 +32,10 @@ export function MiniServices() {
 								href={`/services#${s.id}`}
 								className='group grid grid-cols-12 items-baseline gap-4 py-8 transition-colors md:py-10'
 							>
-								<span className='col-span-2 font-mono text-xs text-ink-soft md:col-span-1'>
-									{String(i + 1).padStart(2, '0')}
-								</span>
-								<h3 className='display col-span-10 text-2xl transition-transform duration-500 group-hover:translate-x-2 md:col-span-5 md:text-4xl'>
+								<h3 className='display col-span-12 text-2xl transition-transform duration-500 group-hover:translate-x-2 md:col-span-6 md:text-4xl'>
 									{s.title}
 								</h3>
-								<p className='col-span-10 col-start-3 text-ink-soft md:col-span-5 md:col-start-auto'>
+								<p className='col-span-12 text-ink-soft md:col-span-5'>
 									{s.short}
 								</p>
 								<span className='hidden justify-end md:col-span-1 md:flex'>
@@ -77,10 +74,8 @@ export function Process({ index = '04' }) {
 								className='h-full rounded-none p-8 md:p-10'
 								style={{ '--spotlight-card-border': 'transparent' }}
 							>
-								<span className='display text-6xl text-signal/90'>
-									{String(i + 1).padStart(2, '0')}
-								</span>
-								<h3 className='mt-10 text-xl font-semibold'>{step.title}</h3>
+								<span className='block h-px w-10 bg-signal' aria-hidden />
+								<h3 className='display mt-8 text-3xl'>{step.title}</h3>
 								<p className='mt-3 leading-relaxed text-ink-soft'>{step.desc}</p>
 							</Spotlight>
 						</Reveal>
@@ -128,12 +123,7 @@ const Services = () => {
 							id={s.id}
 							className='grid scroll-mt-28 gap-8 border-t border-line py-14 md:grid-cols-12 md:py-20'
 						>
-							<Reveal className='md:col-span-1'>
-								<span className='font-mono text-xs text-signal'>
-									{String(i + 1).padStart(2, '0')}
-								</span>
-							</Reveal>
-							<Reveal delay={0.05} className='md:col-span-5'>
+							<Reveal className='md:col-span-6'>
 								<h2 className='display text-4xl leading-tight md:text-5xl'>{s.title}</h2>
 								<p className='mt-3 text-ink-soft'>{s.short}</p>
 							</Reveal>

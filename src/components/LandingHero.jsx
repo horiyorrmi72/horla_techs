@@ -29,8 +29,7 @@ export const MiniAboutUs = () => {
 			<Container className='grid gap-12 md:grid-cols-12'>
 				<Reveal className='md:col-span-3'>
 					<p className='eyebrow flex items-center gap-3'>
-						<span className='text-signal'>01</span>
-						<span className='h-px w-8 bg-ink/25' />
+						<span className='h-px w-8 bg-signal' />
 						The studio
 					</p>
 				</Reveal>
@@ -156,7 +155,7 @@ const LandingHero = () => {
 						<BrowserFrame
 							src={crm.image}
 							size={crm.size}
-							alt={`${crm.client} — ${crm.title}`}
+							alt={`${crm.client} - ${crm.title}`}
 							label={crm.client}
 							priority
 							className='-mb-6 w-[82%] md:-mb-10 md:w-[78%]'
@@ -166,7 +165,7 @@ const LandingHero = () => {
 							<PhoneFrame
 								src={ngo.image}
 								size={ngo.size}
-								alt={`${ngo.client} — ${ngo.title}`}
+								alt={`${ngo.client} - ${ngo.title}`}
 								priority
 								sizes='(max-width: 768px) 30vw, 20vw'
 							/>
@@ -175,7 +174,7 @@ const LandingHero = () => {
 				</motion.div>
 			</Container>
 
-			{/* Capabilities ticker — speeds up and skews with scroll velocity */}
+			{/* Capabilities ticker - speeds up and skews with scroll velocity */}
 			<div className='mt-20 border-y border-line py-6'>
 				<ScrollVelocity
 					texts={[capabilities.join('   ✦   ')]}

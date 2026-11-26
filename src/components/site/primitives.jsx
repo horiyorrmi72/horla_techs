@@ -66,8 +66,7 @@ export function SectionHeading({
 		>
 			<Reveal>
 				<p className={cn('eyebrow flex items-center gap-3', align === 'center' && 'justify-center', dark && 'text-paper/60')}>
-					{index && <span className='text-signal'>{index}</span>}
-					<span className={cn('h-px w-8', dark ? 'bg-paper/30' : 'bg-ink/25')} />
+					<span className='h-px w-8 bg-signal' />
 					{eyebrow}
 				</p>
 			</Reveal>

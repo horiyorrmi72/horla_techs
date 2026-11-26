@@ -126,7 +126,7 @@ const Footer = () => {
 				<div className='mx-auto flex max-w-7xl flex-col justify-between gap-2 px-6 py-6 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-paper/40 md:flex-row md:px-10'>
 					<span>© {new Date().getFullYear()} HorlaTechs Digital Innovation</span>
 					<span>
-						Made with care in Lagos · <LagosTime />
+						<LagosTime />
 					</span>
 				</div>
 			</div>

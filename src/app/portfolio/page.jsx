@@ -4,11 +4,11 @@ import { Container, CtaLink, Reveal } from '@/components/site/primitives';
 import { projects } from '@/lib/projects';
 
 export const metadata = {
-	title: 'Portfolio — HorlaTechs | Selected Software, Web & Mobile Work',
+	title: 'Portfolio - HorlaTechs | Selected Software, Web & Mobile Work',
 	description:
-		'Selected HorlaTechs projects across custom software, CRM, web platforms and mobile apps — with the challenge, approach and measurable outcomes.',
+		'Selected HorlaTechs projects across custom software, CRM, web platforms and mobile apps - with the challenge, approach and measurable outcomes.',
 	openGraph: {
-		title: 'Portfolio — HorlaTechs',
+		title: 'Portfolio - HorlaTechs',
 		description: 'Selected case studies in product, web and engineering.',
 		url: 'https://www.horlatechs.com/portfolio',
 		siteName: 'HorlaTechs',
@@ -26,7 +26,7 @@ const itemList = {
 		'@type': 'ListItem',
 		position: i + 1,
 		url: `https://www.horlatechs.com/portfolio#${p.slug}`,
-		name: `${p.client} — ${p.title}`,
+		name: `${p.client} - ${p.title}`,
 	})),
 };
 
@@ -35,7 +35,7 @@ export default function PortfolioPage() {
 		<>
 			<script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
 			<Hero
-				eyebrow='Selected work, 2022 — today'
+				eyebrow='Selected work, 2022 - today'
 				title={
 					<>
 						Real products, for real people, <em className='text-signal'>doing real work.</em>

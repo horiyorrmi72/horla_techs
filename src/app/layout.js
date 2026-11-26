@@ -33,12 +33,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "HorlaTechs — Software, Web & Mobile App Development",
+  title: "HorlaTechs - Software, Web & Mobile App Development",
   description: "HorlaTechs offers top-tier software engineering, web development, mobile app solutions, CRM, and backend services based in Lagos, Nigeria. Building scalable digital experiences for businesses worldwide.",
   keywords: "software engineering, web development, mobile apps, CRM solutions, backend services, HorlaTechs, Lagos software company",
   author: "HorlaTechs",
   openGraph: {
-    title: "HorlaTechs — Software Engineering, Web & Mobile App Development",
+    title: "HorlaTechs - Software Engineering, Web & Mobile App Development",
     description: "Providing expert software, web, mobile app development, CRM, and backend services for modern businesses.",
     url: "https://www.horlatechs.com",
     siteName: "HorlaTechs",

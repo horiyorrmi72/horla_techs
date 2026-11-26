@@ -63,7 +63,7 @@ export default function About() {
 							delay={i * 0.08}
 							className='border-b border-line py-12 md:border-b-0 md:border-r md:px-10 md:py-16 md:first:pl-0 md:last:border-r-0'
 						>
-							<span className='font-mono text-xs text-signal'>0{i + 1}</span>
+							<span className='block h-px w-10 bg-signal' aria-hidden />
 							<h2 className='display mt-6 text-3xl'>{p.title}</h2>
 							<p className='mt-4 leading-relaxed text-ink-soft'>{p.body}</p>
 						</Reveal>

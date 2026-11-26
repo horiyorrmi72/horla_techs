@@ -66,7 +66,7 @@ export function PhoneFrame({ src, size, alt, className, sizes, priority }) {
  */
 export function ProjectMat({ project, className, priority, sizes }) {
 	const { image, size, device, tone, client, title } = project;
-	const alt = `${client} — ${title}`;
+	const alt = `${client} - ${title}`;
 	const phone = device === 'phone';
 
 	return (

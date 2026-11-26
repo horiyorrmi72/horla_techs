@@ -85,14 +85,9 @@ export function FAQ({ index = '06' }) {
 					{faqItems.map((item, i) => (
 						<AccordionItem key={i} value={`item-${i}`} className='border-line'>
 							<AccordionTrigger className='group items-baseline gap-6 py-7 text-left text-lg font-medium hover:no-underline md:text-xl'>
-								<span className='flex items-baseline gap-5'>
-									<span className='font-mono text-xs text-ink-soft group-data-[state=open]:text-signal'>
-										{String(i + 1).padStart(2, '0')}
-									</span>
-									{item.q}
-								</span>
+								<span className='transition-colors group-data-[state=open]:text-signal'>{item.q}</span>
 							</AccordionTrigger>
-							<AccordionContent className='pb-8 pl-10 text-base leading-relaxed text-ink-soft'>
+							<AccordionContent className='pb-8 pr-10 text-base leading-relaxed text-ink-soft'>
 								{item.a}
 							</AccordionContent>
 						</AccordionItem>

@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowUpRight, Check, Loader2 } from 'lucide-react';
+import { ArrowUpRight, Check, Loader2, Paperclip } from 'lucide-react';
 import { contact } from '@/lib/site';
 import { Container, Reveal } from './site/primitives';
 import { cn } from '@/lib/utils';
@@ -11,6 +11,19 @@ import LagosTime from './site/LagosTime';
 // NEXT_PUBLIC_ values are baked in at build time: restart `dev` / rebuild after changing it.
 const ACCESS_KEY = process.env.NEXT_PUBLIC_ACCESS_KEY_ID;
 
+/** Accepts "drive.google.com/…" as well as full URLs. Returns '' for empty, null if invalid. */
+function normaliseLink(value) {
+	const v = value.trim();
+	if (!v) return '';
+	const withScheme = /^https?:\/\//i.test(v) ? v : `https://${v}`;
+	try {
+		const url = new URL(withScheme);
+		return url.hostname.includes('.') ? url.href : null;
+	} catch {
+		return null;
+	}
+}
+
 const projectTypes = ['Website', 'Mobile app', 'Custom software', 'AI integration', 'Other'];
 
 const fieldClass =
@@ -19,7 +32,7 @@ const labelClass =
 	'pointer-events-none absolute left-0 top-7 text-lg text-ink-soft transition-all duration-200 peer-focus:top-0 peer-focus:font-mono peer-focus:text-[0.7rem] peer-focus:uppercase peer-focus:tracking-[0.18em] peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:font-mono peer-[:not(:placeholder-shown)]:text-[0.7rem] peer-[:not(:placeholder-shown)]:uppercase peer-[:not(:placeholder-shown)]:tracking-[0.18em]';
 
 export default function Contact() {
-	const [form, setForm] = useState({ name: '', email: '', message: '' });
+	const [form, setForm] = useState({ name: '', email: '', message: '', link: '' });
 	const [type, setType] = useState('');
 	const [submitted, setSubmitted] = useState(false);
 	const [loading, setLoading] = useState(false);
@@ -32,6 +45,12 @@ export default function Contact() {
 		e.preventDefault();
 		setError('');
 		setSubmitted(false);
+
+		const link = normaliseLink(form.link);
+		if (link === null) {
+			setError('That link doesn’t look quite right. Please check it, or leave it empty.');
+			return;
+		}
 
 		if (!ACCESS_KEY) {
 			console.error('Contact form: NEXT_PUBLIC_ACCESS_KEY_ID is not set, so messages cannot be sent.');
@@ -46,6 +65,7 @@ export default function Contact() {
 		formData.append('email', form.email);
 		formData.append('project_type', type || 'Not specified');
 		formData.append('message', form.message);
+		if (link) formData.append('brief_link', link);
 		formData.append('botcheck', '');
 
 		try {
@@ -57,7 +77,7 @@ export default function Contact() {
 
 			if (data.success) {
 				setSubmitted(true);
-				setForm({ name: '', email: '', message: '' });
+				setForm({ name: '', email: '', message: '', link: '' });
 				setType('');
 				setTimeout(() => router.push('/'), 6000);
 			} else {
@@ -220,6 +240,31 @@ export default function Contact() {
 									<label htmlFor='message' className={labelClass}>
 										What would you like to build?
 									</label>
+								</div>
+
+								<div>
+									<div className='relative'>
+										<input
+											id='link'
+											name='link'
+											type='text'
+											inputMode='url'
+											autoComplete='url'
+											value={form.link}
+											onChange={handleChange}
+											placeholder='Link to a brief or document (optional)'
+											aria-describedby='link-hint'
+											className={cn(fieldClass, 'pr-8')}
+										/>
+										<label htmlFor='link' className={labelClass}>
+											Link to a brief or document (optional)
+										</label>
+										<Paperclip className='pointer-events-none absolute bottom-4 right-0 size-4 text-ink-soft' aria-hidden />
+									</div>
+									<p id='link-hint' className='mt-3 text-sm leading-relaxed text-ink-soft'>
+										Got a brief, PDF or Word doc? Paste a Google Drive, Dropbox or
+										OneDrive link, and set it so anyone with the link can view.
+									</p>
 								</div>
 
 								<input type='checkbox' name='botcheck' className='hidden' tabIndex={-1} aria-hidden />
