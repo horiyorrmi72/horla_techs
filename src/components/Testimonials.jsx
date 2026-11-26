@@ -1,77 +1,91 @@
-export function Testimonials() {
-	const testimonials = [
-		{
-			name: 'Ibrahim Agbesinga',
-			role: '',
-			quote:
-				'HorlaTech completely transformed our online presence. The website is fast, modern, and user-friendly. Our conversions have doubled since launch!',
-			image: '/images/testimonials/john.jpg',
-		},
-		{
-			name: 'ODULATE JOSEPH',
-			role: '',
-			quote:
-				'Horlatechs is an outstanding tech company that consistently delivers excellence.For anyone looking for a dependable and forward-thinking tech partner, Horlatechs is definitely a company you can trust.',
-			image: '/images/testimonials/okafor.jpg',
-		},
-		{
-			name: 'Yusbyte Technologies',
-			role: '',
-			quote:
-				'The team delivered exactly what we envisioned — and more! Their attention to detail and post-launch support is top-notch.',
-			image: '/images/testimonials/okafor.jpg',
-		},
-		{
-			name: 'George Onunkwor',
-			role: '',
-			quote:
-				'From design to deployment, HorlaTech exceeded expectations. Communication was smooth, and deadlines were met without issues.',
-			image: '/images/testimonials/david.jpg',
-		},
-		{
-			name: 'Azeez Ariyo',
-			role: '',
-			quote:
-				'Working with horlatechs has been a fantastic experience. Their team truly understands both the technical and business side of software development. From planning to delivery, they were reliable, responsive, and incredibly professional. They don’t just build solutions, they help you bring your vision to life with innovation and precision. I highly recommend them to anyone looking for a trustworthy and talented tech partner.',
-			image: '',
-		},
-	];
+import { Container, Reveal, SectionHeading, Spotlight } from './site/primitives';
 
+const testimonials = [
+	{
+		name: 'Azeez Ariyo',
+		quote:
+			'Working with HorlaTechs has been a fantastic experience. Their team truly understands both the technical and business side of software development. From planning to delivery, they were reliable, responsive, and incredibly professional. They don’t just build solutions, they help you bring your vision to life with innovation and precision.',
+	},
+	{
+		name: 'Ibrahim Agbesinga',
+		quote:
+			'HorlaTechs completely transformed our online presence. The website is fast, modern, and user-friendly. Our conversions have doubled since launch!',
+	},
+	{
+		name: 'Odulate Joseph',
+		quote:
+			'HorlaTechs is an outstanding tech company that consistently delivers excellence. For anyone looking for a dependable and forward-thinking tech partner, HorlaTechs is definitely a company you can trust.',
+	},
+	{
+		name: 'Yusbyte Technologies',
+		quote:
+			'The team delivered exactly what we envisioned and more! Their attention to detail and post-launch support is top-notch.',
+	},
+	{
+		name: 'George Onunkwor',
+		quote:
+			'From design to deployment, HorlaTechs exceeded expectations. Communication was smooth, and deadlines were met without issues.',
+	},
+];
+
+const initials = (name) =>
+	name
+		.split(' ')
+		.map((n) => n.charAt(0).toUpperCase())
+		.slice(0, 2)
+		.join('');
+
+function Author({ name }) {
 	return (
-		<section className='py-20 bg-white'>
-			<div className='container mx-auto px-4 max-w-5xl'>
-				<h2 className='text-3xl md:text-4xl font-stretch-semi-condensed text-center mb-12'>
-					What Our Clients Say
-				</h2>
+		<figcaption className='mt-8 flex items-center gap-3'>
+			<span className='flex size-10 items-center justify-center rounded-full bg-ink font-mono text-xs text-paper'>
+				{initials(name)}
+			</span>
+			<span className='text-sm font-medium'>{name}</span>
+		</figcaption>
+	);
+}
 
-				<div className='grid md:grid-cols-3 gap-8'>
-					{testimonials.map((t, index) => (
-						<div
-							key={index}
-							className='bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-shadow'
-						>
-							<div className='flex items-center mb-4 rounded-full font-bold text-black bg-gradient-to-r from-white/50 to-black/30 w-15 h-15 text-center justify-center'>
-								{t.name
-									? t.name
-											.split(' ')
-											.map((n) => n.charAt(0).toUpperCase())
-											.join('')
-									: 'Client'}
-								{/* <img
-									src={t.image}
-									alt={t.name}
-									className='w-12 h-12 rounded-full object-cover mr-4'
-								/> */}
-								<div>
-									{/* <h4 className='font-semibold'>{t.name}</h4> */}
-									<p className='text-sm text-gray-500'>{t.role}</p>
-								</div>
-							</div>
-							<p className='text-gray-700 italic'>"{t.quote}"</p>
-						</div>
+export function Testimonials() {
+	const [lead, ...rest] = testimonials;
+	return (
+		<section className='py-24 md:py-36'>
+			<Container>
+				<SectionHeading
+					index='05'
+					eyebrow='Client voices'
+					title={
+						<>
+							Kind words from the people <em className='text-signal'>we build for.</em>
+						</>
+					}
+				/>
+
+				<Reveal className='mt-16'>
+					<figure className='relative rounded-2xl bg-paper-deep/70 p-8 md:p-16'>
+						<span aria-hidden className='display absolute -top-4 left-6 text-[9rem] leading-none text-signal md:left-12'>
+							“
+						</span>
+						<blockquote className='display relative text-2xl leading-snug md:text-4xl'>
+							{lead.quote}
+						</blockquote>
+						<Author name={lead.name} />
+					</figure>
+				</Reveal>
+
+				<div className='mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4'>
+					{rest.map((t, i) => (
+						<Reveal key={t.name} delay={i * 0.06} className='h-full'>
+							<Spotlight className='h-full p-7'>
+								<figure className='flex h-full flex-col justify-between'>
+									<blockquote className='leading-relaxed text-ink/85'>“{t.quote}”</blockquote>
+									<Author name={t.name} />
+								</figure>
+							</Spotlight>
+						</Reveal>
 					))}
 				</div>
-			</div>
+			</Container>
 		</section>
 	);
 }

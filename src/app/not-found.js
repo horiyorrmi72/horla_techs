@@ -1,26 +1,29 @@
-'use client'
-import React from 'react'
-import Link from 'next/link'
+import { Container, CtaLink } from '@/components/site/primitives';
 
-const NotFound = () => {
-    return (
-        <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-6">
-            <h1 className="text-9xl font-extrabold text-gray-300">404</h1>
-            <h2 className="mt-4 text-3xl font-bold text-gray-800">
-                Oops! Page Not Found
-            </h2>
-            <p className="mt-2 text-gray-600 max-w-md text-center">
-                The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
-            </p>
-
-            <Link
-                href="/"
-                className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition"
-            >
-                Go Back Home
-            </Link>
-        </main>
-    )
+export default function NotFound() {
+	return (
+		<section className='relative flex min-h-[85vh] items-center overflow-hidden pb-20 pt-36'>
+			<div
+				aria-hidden
+				className='hairline-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_65%)]'
+			/>
+			<Container className='relative'>
+				<p className='eyebrow'>Error 404</p>
+				<h1 className='display mt-6 text-[7rem] leading-none md:text-[14rem]'>
+					4<em className='text-signal'>0</em>4
+				</h1>
+				<p className='display mt-4 text-3xl md:text-4xl'>This page has wandered off.</p>
+				<p className='mt-4 max-w-md text-ink-soft'>
+					The page you’re looking for may have been moved, renamed or is
+					temporarily unavailable.
+				</p>
+				<div className='mt-10 flex flex-wrap gap-3'>
+					<CtaLink href='/'>Back to home</CtaLink>
+					<CtaLink href='/contact' variant='outline'>
+						Contact us
+					</CtaLink>
+				</div>
+			</Container>
+		</section>
+	);
 }
-
-export default NotFound

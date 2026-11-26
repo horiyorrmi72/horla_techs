@@ -1,52 +1,47 @@
-import { Button } from './ui/button';
-import Link from 'next/link';
+import { projects } from '@/lib/projects';
+import ProjectCard from './ui/portfolio/ProjectCard';
+import { Container, CtaLink, Reveal, SectionHeading } from './site/primitives';
 
+const featuredSlugs = ['acres-crm', 'bqueue', 'women-safe-house'];
+
+/** Home-page teaser of selected portfolio work. */
 export function CreativitySection() {
-	return (
-		<section className='py-20 bg-gradient-to-b from-white to-gray-50 text-center '>
-			<div className='container mx-auto px-4 max-w-4xl'>
-				<h2 className='text-3xl md:text-4xl font-stretch-semi-condensed mb-4'>
-					Where Creativity Meets Strategy & Innovation
-				</h2>
-				<p className='text-lg text-gray-600 mb-12'>
-					We've cultivated a dynamic space where creativity seamlessly
-					intertwines with strategy and innovation enabling us to develop
-					solutions that are visually stunning, strategically impactful, secure
-					and future-ready.
-				</p>
+	const featured = featuredSlugs
+		.map((slug) => projects.find((p) => p.slug === slug))
+		.filter(Boolean);
 
-				<div className='grid md:grid-cols-2 gap-8 mb-12'>
-					{/* femz/marv
-					<div>
-						<span className='text-4xl'>🎨</span>
-						<h3 className='mt-4 font-semibold text-lg'>Creative Vision</h3>
-						<p className='text-gray-600 text-sm'>
-							Unique designs tailored to reflect your brand’s personality.
-						</p>
-					</div> */}
-					<div>
-						<span className='text-4xl'>📈</span>
-						<h3 className='mt-4 font-semibold text-lg'>Strategic Thinking</h3>
-						<p className='text-gray-600 text-sm'>
-							Solutions aligned with your business objectives for measurable
-							results.
-						</p>
-					</div>
-					<div>
-						<span className='text-4xl'>⚡</span>
-						<h3 className='mt-4 font-semibold text-lg'>
-							Innovative Technology
-						</h3>
-						<p className='text-gray-600 text-sm'>
-							Leveraging modern tech for scalable and future-proof applications.
-						</p>
-					</div>
+	return (
+		<section className='py-24 md:py-36'>
+			<Container>
+				<div className='flex flex-wrap items-end justify-between gap-8'>
+					<SectionHeading
+						index='03'
+						eyebrow='Selected work'
+						title={
+							<>
+								A few things we’re <em className='text-signal'>proud of.</em>
+							</>
+						}
+					/>
+					<Reveal>
+						<CtaLink href='/portfolio' variant='outline'>
+							View all work
+						</CtaLink>
+					</Reveal>
 				</div>
 
-				<Button className='px-6 py-3 bg-primary text-white rounded-full shadow-md hover:shadow-lg transition'>
-					<Link href='/contact'>Let’s Build Something Great</Link>
-				</Button>
-			</div>
+				<div className='mt-16 grid gap-x-6 gap-y-14 md:grid-cols-2'>
+					{featured.map((p, i) => (
+						<Reveal
+							key={p.id}
+							delay={i * 0.08}
+							className={i === 0 ? 'md:col-span-2' : ''}
+						>
+							<ProjectCard project={p} large={i === 0} />
+						</Reveal>
+					))}
+				</div>
+			</Container>
 		</section>
 	);
 }

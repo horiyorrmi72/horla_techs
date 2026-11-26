@@ -2,8 +2,9 @@ import { CreativitySection } from "@/components/CreativitySection";
 import { FAQ } from "@/components/FAQ";
 import { GlobalClients } from "@/components/GlobalClinets";
 import LandingHero, { MiniAboutUs } from "@/components/LandingHero";
-import { MiniServices } from "@/components/Services";
+import { MiniServices, Process } from "@/components/Services";
 import { Testimonials } from "@/components/Testimonials";
+import { StudioNote } from "@/components/StudioNote";
 
 export const metadata = {
   title: 'HorlaTechs | Innovative Software, AI & Digital Solutions',
@@ -47,14 +48,16 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <>
       <LandingHero />
       <MiniAboutUs />
       <MiniServices />
-      <GlobalClients />
       <CreativitySection />
+      <Process />
+      <GlobalClients />
       <Testimonials />
+      <StudioNote />
       <FAQ />
-    </div>
+    </>
   );
 }
